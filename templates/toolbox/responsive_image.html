@@ -1,0 +1,25 @@
+{% load static %}
+
+<picture>
+    {% if xl %}
+        <source media="(min-width: {{xl.size}}px)" srcset="{{ xl.image.url }}">
+    {% endif %}
+
+    {% if lg %}
+        <source media="(min-width: {{lg.size}}px)" srcset="{{ lg.image.url }}">
+    {% endif %}
+
+    {% if md %}
+        <source media="(min-width: {{md.size}}px)" srcset="{{ md.image.url }}">
+    {% endif %}
+
+    {% if sm %}
+        <source media="(min-width: {{sm.size}}px)" srcset="{{ sm.image.url }}">
+    {% endif %}
+
+    {% if xs %}
+        <source srcset="{{ xs.image.url }}">
+    {% endif %}
+
+   <img src="{{ xl.image.url }}" width="{{xl.image.width}}" height="{{xl.image.height}}" alt="{{ alt }}">
+</picture>
