@@ -1,4 +1,5 @@
 from django import template
+from django.template.defaultfilters import stringfilter
 from django.conf import settings
 from toolbox.tools import is_local
 from toolbox.models import ResponsiveImage
@@ -21,3 +22,16 @@ def render_responsive_image(image: ResponsiveImage, alt: str):
         'xs': {'image': image.xs, 'size': 320},
         'alt': alt,
     }
+
+
+@register.inclusion_tag('toolbox/form_errors.html')
+def render_form_errors(errors: list):
+    return {
+        'errors': errors,
+    }
+
+
+@register.filter('getOrDefault')
+@stringfilter
+def get_or_default(value, default=''):
+    return value if value else default
