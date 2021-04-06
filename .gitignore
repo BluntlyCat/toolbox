@@ -144,5 +144,5 @@ fabric.properties
 © Gitea  Deutsch  JavaScript licenses API Webseite
 
 # DJANGO
-*migrations/*.py
-!*migrations/__init__.py
+*/migrations/*.py
+!*/migrations/__init__.py
